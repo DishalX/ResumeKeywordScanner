@@ -19,15 +19,17 @@ A simple Java console app that compares your resume against a job description to
 ## Sample Output
 
 ```
-Enter job description:
-Looking for a Java developer with Agile, CI/CD, and testing experience.
+Would you like to (1) paste your job description or (2) upload a PDF? 1
+[User pastes job description]
 
-Enter your resume:
-Skilled in Java, GitHub, and web development.
+or
+
+Would you like to (1) paste your resume or (2) upload a PDF? 2
+Enter path to resume PDF: resume.pdf
 
 --- Match Results ---
-Matched keywords: Java
-Missing keywords: Agile, CI/CD, testing
+Matched keywords: Java, testing
+Missing keywords: Agile, CI/CD, deployment
 ```
 
 
@@ -38,8 +40,19 @@ ResumeKeywordScanner/
 ├── ResumeKeywordScanner.java  
 ├── pdfbox-2.0.34.jar  
 ├── fontbox-2.0.34.jar  
-├── commons-logging-1.3.5.jar  
+├── commons-logging-1.3.5.jar
 ```
+## Required Libraries (JARs)
+
+```
+This project requires the following external libraries to compile and run:
+
+1. [pdfbox-2.0.34.jar](https://downloads.apache.org/pdfbox/2.0.34/pdfbox-2.0.34.jar)  
+2. [fontbox-2.0.34.jar](https://downloads.apache.org/pdfbox/2.0.34/fontbox-2.0.34.jar)  
+3. [commons-logging-1.3.5.jar](https://commons.apache.org/proper/commons-logging/download_logging.cgi)
+```
+
+Download these files and place them in the same directory as `ResumeKeywordScanner.java`.
 
 ## Author
 
