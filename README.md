@@ -35,7 +35,10 @@ Missing keywords: Agile, CI/CD, testing
 
 ```
 ResumeKeywordScanner/
-├── ResumeKeywordScanner.java // Main app file
+├── ResumeKeywordScanner.java  
+├── pdfbox-2.0.34.jar  
+├── fontbox-2.0.34.jar  
+├── commons-logging-1.3.5.jar  
 ```
 
 ## Author
