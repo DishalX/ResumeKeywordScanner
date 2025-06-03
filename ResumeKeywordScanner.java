@@ -32,8 +32,23 @@ public class ResumeKeywordScanner {
             missing.removeAll(resumeWords);
 
             System.out.println("\n--- Match Results ---");
-            System.out.println("Matched keywords: " + (matched.isEmpty() ? "None" : String.join(", ", matched)));
-            System.out.println("Missing keywords: " + (missing.isEmpty() ? "None" : String.join(", ", missing)));
+            System.out.printf("Matched: %d / %d keywords\n", matched.size(), jobKeywords.size());
+
+            System.out.print("\u001B[32m✔ Matched: ");
+            if (matched.isEmpty()) {
+                System.out.print("None");
+            } else {
+                System.out.print(String.join(", ", matched));
+            }
+            System.out.println("\u001B[0m");
+
+            System.out.print("\u001B[31m✘ Missing: ");
+            if (missing.isEmpty()) {
+                System.out.print("None");
+            } else {
+                System.out.print(String.join(", ", missing));
+            }
+            System.out.println("\u001B[0m");
         }
 
         System.out.println("Goodbye.");
@@ -82,6 +97,10 @@ public class ResumeKeywordScanner {
                 keywords.add(word);
             }
         }
+
+        return keywords;
+    }
+}
 
         return keywords;
     }
