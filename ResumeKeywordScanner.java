@@ -10,6 +10,10 @@ public class ResumeKeywordScanner {
         "as", "at", "be", "this", "that", "from", "you", "your", "will", "we", "our"
     ));
 
+    private static final String GREEN = "\u001B[32m";
+    private static final String RED = "\u001B[31m";
+    private static final String RESET = "\u001B[0m";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -34,21 +38,19 @@ public class ResumeKeywordScanner {
             System.out.println("\n--- Match Results ---");
             System.out.printf("Matched: %d / %d keywords\n", matched.size(), jobKeywords.size());
 
-            System.out.print("\u001B[32m✔ Matched: ");
             if (matched.isEmpty()) {
-                System.out.print("None");
+                System.out.println(GREEN + "Matched keywords: None" + RESET);
             } else {
-                System.out.print(String.join(", ", matched));
+                System.out.print(GREEN + "Matched keywords: ");
+                System.out.println(String.join(", ", matched) + RESET);
             }
-            System.out.println("\u001B[0m");
 
-            System.out.print("\u001B[31m✘ Missing: ");
             if (missing.isEmpty()) {
-                System.out.print("None");
+                System.out.println(RED + "Missing keywords: None" + RESET);
             } else {
-                System.out.print(String.join(", ", missing));
+                System.out.print(RED + "Missing keywords: ");
+                System.out.println(String.join(", ", missing) + RESET);
             }
-            System.out.println("\u001B[0m");
         }
 
         System.out.println("Goodbye.");
@@ -59,7 +61,7 @@ public class ResumeKeywordScanner {
         System.out.printf("\nWould you like to (1) paste your %s or (2) upload a PDF? Enter 1 or 2: ", type);
         String choice = scanner.nextLine().trim();
 
-        if (choice.equals("exit")) return "exit";
+        if (choice.equalsIgnoreCase("exit")) return "exit";
 
         if (choice.equals("1")) {
             System.out.printf("Paste your %s below:\n", type);
@@ -91,17 +93,11 @@ public class ResumeKeywordScanner {
     private static Set<String> extractKeywords(String text) {
         String[] words = text.replaceAll("[^a-zA-Z0-9 ]", "").split("\\s+");
         Set<String> keywords = new HashSet<>();
-
         for (String word : words) {
             if (!STOP_WORDS.contains(word) && word.length() > 1) {
                 keywords.add(word);
             }
         }
-
-        return keywords;
-    }
-}
-
         return keywords;
     }
 }
