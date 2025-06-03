@@ -5,6 +5,7 @@ A simple Java console app that compares your resume against a job description to
 ## Features
 
 - Accepts pasted resume and job description inputs
+- Option to paste text or upload PDF for both resume and job description
 - Filters out common stop words (e.g. "and", "the", "in")
 - Identifies important keywords from the job description
 - Compares with your resume and reports matches and gaps
